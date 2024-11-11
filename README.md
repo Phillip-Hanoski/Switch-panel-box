@@ -1,5 +1,6 @@
-In this repository I included all the design and coding files.
-The scheamtic pdf, the actual altium project and even the solidworks file of the bottom of the box that was 3D printed.
-To use the box simply connect your computer to the arduino and upload the arduino code (realsketchbuttoncode.ino) to the arduino and it should be good to go.
-To use the box without having to push the button make sure the adruino code is uploaded and then read the commenting of the python code
-(realSwitchBoxpythoncode.py) which gives detailed instructions on how to use the code.
+In this repository, I included all the design and coding files.
+The schematic pdf, the actual Altium project, and even the Solidworks file of the bottom of the box that was 3D printed.
+To use the box, simply connect your computer to the Arduino and upload the Arduino code (realsketchbuttoncode.ino). Then, you should be good to go.
+To use the box without pushing the button, please make sure the Arduino code is uploaded and then close the Arduino IDE as it will fight with the Python 
+code over the serial port. Furthermore, read the commenting on the Python code (realSwitchBoxpythoncode.py), which gives simple instructions on 
+using the code.
