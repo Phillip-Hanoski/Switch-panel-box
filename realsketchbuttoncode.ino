@@ -1,7 +1,8 @@
-const int SwOneVNAIN = 10;
-const int SwOneNIN = 11;  
-const int SwTwoVNAIN = 12;
-const int SwTwoNIN = 13;
+const int SwOneVNAIN = 40;
+const int SwOneNIN = 41;  
+
+const int SwTwoVNAIN = 44;
+const int SwTwoNIN = 46;
 const int SwOneVNAO = 22;
 const int SwOneNO = 24;
 const int SwTwoVNAO = 26;
@@ -25,10 +26,10 @@ unsigned long debounceDelay = 500; // Debounce delay in milliseconds
 void setup() {
   Serial.begin(9600);
   pinMode(BackLED, OUTPUT); 
-  pinMode(SwOneVNAIN, INPUT);
-  pinMode(SwOneNIN, INPUT);
-  pinMode(SwTwoVNAIN, INPUT); 
-  pinMode(SwTwoNIN, INPUT); 
+  pinMode(SwOneVNAIN, INPUT_PULLUP);
+  pinMode(SwOneNIN, INPUT_PULLUP);
+  pinMode(SwTwoVNAIN, INPUT_PULLUP); 
+  pinMode(SwTwoNIN, INPUT_PULLUP); 
   pinMode(SwOneVNAO, OUTPUT);
   pinMode(SwOneNO, OUTPUT);
   pinMode(SwTwoVNAO, OUTPUT);
@@ -50,6 +51,7 @@ void loop() {
         StateVNA1 = !StateVNA1;         //Switch state
         digitalWrite(SwOneVNAO, StateVNA1);       
         lastDebounceTimeV1 = millis();      //Have the time be saved for the next time
+        Serial.println("VNA1");
       }
     }
   }
@@ -64,6 +66,7 @@ void loop() {
         StateN1 = !StateN1;
         digitalWrite(SwOneNO, StateN1);
         lastDebounceTimeN1 = millis();
+        Serial.println("N1");
       }
     }
   }
@@ -76,11 +79,13 @@ void loop() {
         StateVNA2 = !StateVNA2;
         digitalWrite(SwTwoVNAO, StateVNA2);
         lastDebounceTimeV2 = millis();
+        Serial.println("VNA2");
       }
     }
   }
   
   if (digitalRead(SwTwoNIN) == LOW){
+   
     if (digitalRead(SwTwoVNAO) == LOW){
     
     
@@ -90,6 +95,7 @@ void loop() {
         StateN2 = !StateN2;
         digitalWrite(SwTwoNO, StateN2);
         lastDebounceTimeN2 = millis();
+        Serial.println("N2");
       }
     }
   }
